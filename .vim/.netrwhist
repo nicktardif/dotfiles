@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/var/www/peerfit_dev/peerfit/www.peerfit.com/web/content/blog/wp-content/plugins/types/embedded/classes/relationship'
+let g:netrw_dirhist_2='/peerfit/www.peerfit.com/web/private/includes/classes'
+let g:netrw_dirhist_3='/peerfit/www.peerfit.com/web/content/tabmin/modules/users'
+let g:netrw_dirhist_4='/peerfit/www.peerfit.com/web/content/blog/wp-content/themes/peerfit'
+let g:netrw_dirhist_5='/etc/apache2/sites-available'
+let g:netrw_dirhist_6='/peerfit/www.peerfit.com/web/content/blog/wp-content/themes/peerfit'
