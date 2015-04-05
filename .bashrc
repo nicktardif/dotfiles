@@ -49,12 +49,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
+# Set my terminal prompt
+PS1=$'\[\033[01;35m\]\u2295\u2261\u2261\u2225\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25ae\u25e4 \[\033[01;34m\]\w \ue030\[\033[00m\] '
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -89,5 +85,11 @@ fi
 #    . /etc/bash_completion
 #fi
 
+# Remap up and down arrows to search through history
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+toilet -t -f mono9 --gay 'ticknardif'
