@@ -35,6 +35,7 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " Airline configurations
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 if !exists('g:airline_symbols')
@@ -42,6 +43,15 @@ if !exists('g:airline_symbols')
 endif
 
 let g:airline_symbols.space = "\ua0"
+
+" Treat buffers like tabs
+nmap gt :bn<CR>
+nmap gT :bp<CR>
+
+" Close a buffer without closing the window
+nnoremap <leader>q :bp<cr>:bd #<cr>
+
+nmap ntt :NERDTreeToggle<CR>
 
 " Set airline to always be visible
 set laststatus=2
