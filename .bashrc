@@ -62,6 +62,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias gittree='git log --oneline --graph --decorate --all'
 fi
 
 # some more ls aliases
