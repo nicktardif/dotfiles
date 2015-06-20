@@ -2,10 +2,13 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 set cindent
-set tabstop=4
-set shiftwidth=4
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 set scrolloff=8
+
 
 let base16colorspace=256
 set t_Co=256 "256 color mode
@@ -16,6 +19,9 @@ set nu "Set line numbers
 
 set undofile
 set undodir =~/.vim/.vimundo/
+
+set fdm=indent
+set foldlevelstart=99
 
 "Do not highlight a matching parentheses automatically
 let loaded_matchparen = 1
@@ -79,5 +85,29 @@ function! s:AbortMacroRecording()
     echomsg "Couldn't detect recorded register"
 endfunction
 nnoremap <silent> q! :<C-u>call <SID>AbortMacroRecording()<CR>
+
+" Create functions for showing and removing extra whitespace
+function ShowSpaces(...)
+  let @/='\v(\s+$)|( +\ze\t)'
+  let oldhlsearch=&hlsearch
+  if !a:0
+    let &hlsearch=!&hlsearch
+  else
+    let &hlsearch=a:1
+  end
+  return oldhlsearch
+endfunction
+
+function TrimSpaces() range
+  let oldhlsearch=ShowSpaces(1)
+  execute a:firstline.",".a:lastline."substitute ///gec"
+  let &hlsearch=oldhlsearch
+endfunction
+
+command -bar -nargs=? ShowSpaces call ShowSpaces(<args>)
+command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
+nnoremap <F12>     :ShowSpaces 1<CR>
+nnoremap <S-F12>   m`:TrimSpaces<CR>``
+vnoremap <S-F12>   :TrimSpaces<CR>
 
 call yankstack#setup()
