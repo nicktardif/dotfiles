@@ -7,10 +7,13 @@
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
-HISTCONTROL=ignoredups:ignorespace
+HISTCONTROL=ignoreboth:erasedups
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+
+# Allow bash to recognize extended patterns
+shopt -s extglob
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -33,6 +36,14 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
+if [ "$COLORTERM" = "gnome-terminal" ] || [ "$COLORTERM" = "xfce4-terminal" ]
+then
+    export TERM=xterm-256color
+elif [ "$COLORTERM" = "rxvt-xpm" ]
+then
+    export TERM=rxvt-256color
+fi
+
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
@@ -49,26 +60,21 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-# Set my terminal prompt
-PS1=$'\[\033[01;35m\]\u2295\u2261\u2261\u2225\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25a0\u25ae\u25e4 \[\033[01;34m\]\w \ue030\[\033[00m\] '
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
     alias gittree='git log --oneline --graph --decorate --all'
+    alias gitree='gittree'
 fi
 
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias tmux='tmux -2'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -93,4 +99,18 @@ bind '"\e[B":history-search-forward'
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-toilet -t -f mono9 --gay 'ticknardif'
+toilet -t -f mono9 --gay 'nick'
+
+
+# --- Paracosm stuff --- #
+source ~/Tools/paracosm_scripts.sh
+
+export PIPELINE_ROOT=$HOME/Paracosm/pipeline/install
+[[ -d $PIPELINE_ROOT && -d $PIPELINE_ROOT/lib ]] && LD_LIBRARY_PATH=$PIPELINE_ROOT/lib:$LD_LIBRARY_PATH
+[[ -d $PIPELINE_ROOT && -d $PIPELINE_ROOT/bin ]] && PATH=$PIPELINE_ROOT/bin:$PATH 
+
+#[[ -d /usr/lib/ccache ]] && PATH=/usr/lib/ccache:$PATH
+
+export LD_LIBRARY_PATH
+export PATH
+
