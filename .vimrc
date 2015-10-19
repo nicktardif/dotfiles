@@ -36,10 +36,6 @@ nnoremap<Leader>f <C-z>
 "Enter line selection with <Leader><Leader>
 nmap <Leader><Leader> V
 
-"Set <Leader>p and <Leader>P to cycle through yankstack
-nmap <leader>p <Plug>yankstack_substitute_older_paste
-nmap <leader>P <Plug>yankstack_substitute_newer_paste
-
 " ****** Airline Config ****** "
 " Airline configurations
 let g:airline_powerline_fonts = 1
@@ -135,5 +131,3 @@ command -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call TrimSpaces()
 nnoremap <F12>     :ShowSpaces 1<CR>
 nnoremap <S-F12>   m`:TrimSpaces<CR>``
 vnoremap <S-F12>   :TrimSpaces<CR>
-
-call yankstack#setup()
