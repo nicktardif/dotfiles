@@ -17,6 +17,9 @@ RUN apt-get install -y \
   feh \
   vlc
 
+RUN apt-get update && apt-get install -y \
+  toilet
+
 RUN mkdir .ssh/
 ADD ssh/ .ssh/
 RUN chmod 600 .ssh/* && \

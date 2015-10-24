@@ -103,7 +103,7 @@ toilet -t -f mono9 --gay 'nick'
 
 
 # --- Paracosm stuff --- #
-source ~/Tools/paracosm_scripts.sh
+[[ -d ~/Tools/paracosm_scripts.sh ]] && source ~/Tools/paracosm_scripts.sh
 
 export PIPELINE_ROOT=$HOME/Paracosm/pipeline/install
 [[ -d $PIPELINE_ROOT && -d $PIPELINE_ROOT/lib ]] && LD_LIBRARY_PATH=$PIPELINE_ROOT/lib:$LD_LIBRARY_PATH
