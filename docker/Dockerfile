@@ -20,16 +20,19 @@ RUN apt-get install -y \
 RUN apt-get update && apt-get install -y \
   toilet
 
-RUN mkdir .ssh/
+RUN mkdir .ssh/ Git/
 ADD ssh/ .ssh/
 RUN chmod 600 .ssh/* && \
     ssh-keyscan github.com >> .ssh/known_hosts
 
 # Cache buster
 ADD version version
+RUN rm version
 
+WORKDIR /root/Git
 RUN git clone git@github.com:nicktardif/dotfiles.git && \
     cd dotfiles && \
     ./install.sh
 
+WORKDIR /root
 CMD ["/bin/bash"]
