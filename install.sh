@@ -8,9 +8,6 @@ ln -s `pwd`/.Xdefaults ~/.Xdefaults
 cp -r `pwd`/.vim ~/
 git clone https://github.com/ekalinin/Dockerfile.vim.git ~/.vim/bundle/Dockerfile
 git clone https://github.com/bling/vim-airline ~/.vim/bundle/vim-airline
-git clone https://github.com/powerline/fonts.git
-
-cd fonts && ./install.sh
 
 git config --global user.name "Nick Tardif"
 git config --global user.email "nicktardif@gmail.com"

@@ -10,6 +10,8 @@ set softtabstop=2
 set scrolloff=8
 set clipboard=unnamed
 
+"Powerline fonts
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 
 let base16colorspace=256
 set background=dark "Set the background to dark

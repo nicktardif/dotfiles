@@ -16,6 +16,7 @@ RUN apt-get install -y \
 
 RUN apt-get update && apt-get install -y \
   toilet
+  python-pip
 
 RUN export uid=1000 gid=1000 && \
     mkdir -p /home/nick && \
@@ -43,6 +44,10 @@ WORKDIR /home/nick/Git
 RUN git clone git@github.com:nicktardif/dotfiles.git && \
     cd dotfiles && \
     ./install.sh
+
+RUN pip install git+git://github.com/Lokaltog/powerline && \
+    wget https://github.com/powerline/fonts/blob/master/Inconsolata/Inconsolata%20for%20Powerline.otf /usr/share/fonts & \
+    fc-cache -vf
 
 WORKDIR /home/nick
 CMD ["/bin/bash"]
