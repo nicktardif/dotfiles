@@ -22,8 +22,11 @@ ADD ssh/ .ssh/
 RUN chmod 600 .ssh/* && \
     ssh-keyscan github.com >> .ssh/known_hosts
 
+# Cache buster
+ADD version version
+
 RUN git clone git@github.com:nicktardif/dotfiles.git && \
     cd dotfiles && \
-    ./install.sh --no-cache
+    ./install.sh
 
 CMD ["/bin/bash"]
