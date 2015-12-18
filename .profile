@@ -41,9 +41,9 @@ fi
 #    fi
 #fi
 
-if [ -d "/home/nick/.local/bin" ]; then
-  PATH="/home/nick/.local/bin:/home/nick/Paracosm/pipeline/install/bin:/home/nick/Paracosm/pipeline/install/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="$HOME/.local/bin:$PATH"
 fi
-if [ -d "/home/nick/.local/lib" ]; then
-  LD_LIBRARY_PATH="/home/nick/.local/lib:/home/nick/Paracosm/pipeline/install/lib:/home/nick/Paracosm/pipeline/install/lib:"
+if [ -d "$HOME/.local/lib" ]; then
+  LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
 fi
