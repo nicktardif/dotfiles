@@ -111,6 +111,13 @@ export PIPELINE_ROOT=$HOME/Paracosm/pipeline/install
 
 #[[ -d /usr/lib/ccache ]] && PATH=/usr/lib/ccache:$PATH
 
+# Set up ccache on each bash login
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="$HOME/.local/bin:$PATH"
+fi
+if [ -d "$HOME/.local/lib" ]; then
+  LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
+fi
+
 export LD_LIBRARY_PATH
 export PATH
-
