@@ -9,6 +9,7 @@ set softtabstop=2
 
 set scrolloff=8
 set clipboard=unnamed
+set wildmenu
 
 "Powerline fonts
 set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
@@ -41,8 +42,6 @@ nmap <Leader><Leader> V
 " ****** Airline Config ****** "
 " Airline configurations
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -53,14 +52,12 @@ let g:airline_symbols.space = "\ua0"
 " Set airline to always be visible
 set laststatus=2
 
-" Treat buffers like tabs
-nmap gt :bn<CR>
-nmap gT :bp<CR>
+" ****** Easy Align Settings ****** "
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
-" Close a buffer without closing the window
-nnoremap <leader>q :bp<cr>:bd #<cr>
-
-nmap ntt :NERDTreeToggle<CR>
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " ****** Macros ****** "
 " q!            Abort macro recording without changing the current one.
