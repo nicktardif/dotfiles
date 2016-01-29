@@ -101,6 +101,11 @@ BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 
 toilet -t -f mono9 --gay 'nick'
 
+function branchr() {
+  for k in `git branch -r | perl -pe "s/^..(.*?)( ->.*)?$/\1/"`;
+    do echo -e `git show --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k -- | head -n 1`\\t$k;
+  done | sort -r
+}
 
 # --- Paracosm stuff --- #
 [[ -d ~/Tools/paracosm_scripts.sh ]] && source ~/Tools/paracosm_scripts.sh
