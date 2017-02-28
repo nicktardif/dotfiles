@@ -70,11 +70,12 @@ if [ -x /usr/bin/dircolors ]; then
     alias gitree='gittree'
 fi
 
-# some more ls aliases
+# some more aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias tmux='tmux -2'
+alias superclear='echo -e \\033c'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -110,9 +111,9 @@ function branchr() {
 # --- Paracosm stuff --- #
 [[ -d ~/Tools/paracosm_scripts.sh ]] && source ~/Tools/paracosm_scripts.sh
 
-export PIPELINE_ROOT=$HOME/Paracosm/pipeline/install
-[[ -d $PIPELINE_ROOT && -d $PIPELINE_ROOT/lib ]] && LD_LIBRARY_PATH=$PIPELINE_ROOT/lib:$LD_LIBRARY_PATH
-[[ -d $PIPELINE_ROOT && -d $PIPELINE_ROOT/bin ]] && PATH=$PIPELINE_ROOT/bin:$PATH 
+#export PIPELINE_ROOT=$HOME/Paracosm/pipeline/install
+#[[ -d $PIPELINE_ROOT && -d $PIPELINE_ROOT/lib ]] && LD_LIBRARY_PATH=$PIPELINE_ROOT/lib:$LD_LIBRARY_PATH
+#[[ -d $PIPELINE_ROOT && -d $PIPELINE_ROOT/bin ]] && PATH=$PIPELINE_ROOT/bin:$PATH 
 
 #[[ -d /usr/lib/ccache ]] && PATH=/usr/lib/ccache:$PATH
 
