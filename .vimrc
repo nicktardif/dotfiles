@@ -61,6 +61,7 @@ nmap ga <Plug>(EasyAlign)
 
 " Filetype fix
 au BufReadPost *.launch set syntax=xml
+au BufReadPost *.tpl set syntax=yaml
 
 if &term =~ '256color'
   " disable Background Color Erase (BCE) so that color schemes
