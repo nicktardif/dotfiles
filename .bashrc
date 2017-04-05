@@ -70,6 +70,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias gitree='gittree'
 fi
 
+# Markdown file colors, to work with https://github.com/axiros/terminal_markdown_viewer
+export MDV_THEME=784.8759
+
 # some more aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -99,6 +102,9 @@ bind '"\e[B":history-search-forward'
 
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+# Disable Ctrl-S from freezing the terminal
+stty -ixon
 
 toilet -t -f mono9 --gay 'nick'
 
