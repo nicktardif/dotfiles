@@ -14,10 +14,10 @@ set wildmenu
 "Powerline fonts
 set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 
-let base16colorspace=256
-set background=dark "Set the background to dark
-set t_Co=256 
-colorscheme base16-railscasts "Use the railscasts color scheme
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 set nu "Set line numbers
 
