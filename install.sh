@@ -21,6 +21,13 @@ git clone git://github.com/tpope/vim-abolish.git ~/.vim/bundle/abolish
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 # Current color scheme can be loaded with `base16_darktooth`
 
+(
+mkdir -p ~/Git
+git clone https://github.com/powerline/fonts.git --depth=1 ~/Git/powerline-fonts
+cd ~/Git/powerline-fonts
+./install.sh
+)
+
 git config --global user.name "Nick Tardif"
 git config --global user.email "nicktardif@gmail.com"
 
