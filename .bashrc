@@ -74,7 +74,7 @@ fi
 export MDV_THEME=784.8759
 
 # some more aliases
-alias ls='ls -GF'
+alias ls='ls -GF --color=auto'
 alias tmux='tmux -2'
 alias superclear='echo -e \\033c'
 

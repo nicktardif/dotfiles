@@ -16,6 +16,7 @@ git clone https://github.com/vim-scripts/VisIncr.git ~/.vim/bundle/visincr
 git clone https://github.com/stephpy/vim-yaml ~/.vim/bundle/vim-yaml
 git clone https://github.com/chriskempson/base16-vim ~/.vim/bundle/base16-vim
 git clone git://github.com/tpope/vim-abolish.git ~/.vim/bundle/abolish
+git clone git://github.com/vim-syntastic/syntastic.git ~/.vim/bundle/syntastic
 
 # Shell color scheme
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
