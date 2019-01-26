@@ -112,14 +112,11 @@ function branchr() {
   done | sort -r
 }
 
+# --- Windows 10 WSL Git Clone File Permissions Fix
+umask 0022
+
 # --- Paracosm stuff --- #
 [[ -d ~/Tools/paracosm_scripts.sh ]] && source ~/Tools/paracosm_scripts.sh
-
-#export PIPELINE_ROOT=$HOME/Paracosm/pipeline/install
-#[[ -d $PIPELINE_ROOT && -d $PIPELINE_ROOT/lib ]] && LD_LIBRARY_PATH=$PIPELINE_ROOT/lib:$LD_LIBRARY_PATH
-#[[ -d $PIPELINE_ROOT && -d $PIPELINE_ROOT/bin ]] && PATH=$PIPELINE_ROOT/bin:$PATH 
-
-#[[ -d /usr/lib/ccache ]] && PATH=/usr/lib/ccache:$PATH
 
 # Set up ccache on each bash login
 if [ -d "$HOME/.local/bin" ]; then
