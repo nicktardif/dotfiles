@@ -1,8 +1,8 @@
 ln -s `pwd`/.bashrc ~/.bashrc
+ln -s `pwd`/.zshrc ~/.zshrc
 ln -s `pwd`/.profile ~/.profile
 ln -s `pwd`/.tmux.conf ~/.tmux.conf
 ln -s `pwd`/.vimrc ~/.vimrc
-ln -s `pwd`/.Xdefaults ~/.Xdefaults
 
 cp -r `pwd`/.vim ~/
 
@@ -21,7 +21,7 @@ git clone https://github.com/posva/vim-vue.git ~/.vim/bundle/vim-vue
 
 # Shell color scheme
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-# Current color scheme can be loaded with `base16_darktooth`
+# Current color scheme can be loaded with `base16_materia`
 
 (
 mkdir -p ~/Git
@@ -32,6 +32,3 @@ cd ~/Git/powerline-fonts
 
 git config --global user.name "Nick Tardif"
 git config --global user.email "nicktardif@gmail.com"
-
-# Markdown File Viewer
-sudo pip install mdv
